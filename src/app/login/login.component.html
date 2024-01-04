@@ -1,0 +1,8 @@
+<div class="login-container">
+  <form #loginForm="ngForm" (ngSubmit)="onLogin()">
+    <input type="text" id="username" required [(ngModel)]="user.username" name="username" placeholder="Username/Email">
+    <input type="password" id="password" required [(ngModel)]="user.password" name="password" placeholder="Password">
+    <button type="submit" [disabled]="!loginForm.valid">Login</button>
+    <button type="button" (click)="onRegister()">Register</button>
+  </form>
+</div>
