@@ -3,11 +3,13 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0 ,0 ,0.1);
 
-  .logo span {
+  .logo {
     height: 50px;
+    font-family: 'Gotham';
+    font-weight: 900;
+    font-size: 2rem;
+    color: red;
   }
 
   .navbar {
