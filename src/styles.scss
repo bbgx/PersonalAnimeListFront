@@ -27,10 +27,12 @@
 }
 
 html {
-  background: url('assets/images/login_background.jpg') no-repeat center center;
+  background: url('assets/images/login_background.png') no-repeat center center;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   height: 100%;
   width: 100%;
+  font-family: 'Gotham';
+  font-weight: 500;
 }
