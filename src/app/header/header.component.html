@@ -1,18 +1,22 @@
 <header>
   <div>
-    <span class="logo">WEEABO WATCHLIST</span>
+    <span class="logo"><a href="/">WEEABO WATCHLIST</a></span>
   </div>
-  <nav class="navbar">
-    <a href="">Home</a>
+  <div class="search-container">
+    <input #searchBox type="text" class="search-box" placeholder="Search..."
+    (focus)="hideNavbar()"
+    (blur)="beginSearchBoxShrink()"
+    (transitionend)="handleTransitionEnd($event)">>
+    <span class="icon"><fa-icon [icon]="faMagnifyingGlass"></fa-icon></span>
+  </div>
+
+  <nav class="navbar" [ngStyle]="{'visibility': navbarVisible ? 'visible' : 'hidden', 'opacity': navbarVisible ? '1' : '0'}">
+    <a href="/">Home</a>
     <a href="">Anime</a>
     <a href="">Mangas</a>
     <a href="">About</a>
   </nav>
 
-  <div class="search-container">
-    <input type="text" placeholder="Search...">
-    <button type="button"><fa-icon [icon]="faMagnifyingGlass"></fa-icon></button>
-  </div>
   <div class="auth-buttons">
     <button type="button" (click)="onLoginClick()">Login</button>
     <button type="button" (click)="onRegisterClick()">Register</button>

@@ -9,31 +9,92 @@ header {
     font-family: 'Gotham';
     font-weight: 900;
     font-size: 2rem;
-    color: red;
-  }
-
-  .navbar {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     a {
-      margin: 0 1rem;
       text-decoration: none;
-      color: #333;
-
-      &:hover {
-        color: #007bff;
-      }
+      color: red;
     }
   }
 
   .search-container {
     display: flex;
     align-items: center;
+    position: relative;
+    margin-left: 2rem;
+    order: 2;
 
-    input[type="text"] {
-      padding: 0.5rem;
-      border: 1px solid #ddd;
-      border-radius: 0.25rem;
-      margin-right: 0.5rem;
+    .search-box {
+      flex-grow: 1;
+      flex-shrink: 1;
+      position: relative;
+      background-color: black;
+      padding: 0.5rem 1.8rem;
+      box-sizing: border-box;
+      border: 2px solid #1f1f1f;
+      border-radius: 0.35rem;
+      font-family: 'Gotham';
+      font-weight: 600;
+      color: white;
+      width: 30vh;
+      flex-grow: 1;
+      transition: width .5s;
+
+      &:focus {
+        outline: solid 1px #1f1f1f;
+        width: 60vh;
+      }
+
+      &:not(:focus) {
+        width: 30vh;
+      }
     }
+
+    .icon {
+      position: absolute;
+      left: .5rem;
+      color: white;
+      top: calc(46% - 0.5em);
+    }
+  }
+
+  .search-container:focus-within {
+    ~ .navbar {
+      display: hidden;
+      opacity: 0;
+      transition: opacity 0.4s, visibility 0s linear 0.4s;
+    }
+  }
+
+  .navbar {
+    order: 1;
+    display: block;
+    visibility: visible;
+    transition: opacity 0.4s, visibility 0s linear 0.4s;
+
+    a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: white;
+      font-family: 'Gotham';
+      font-weight: 700;
+      transition: all 0.4s ease;
+
+      &:hover {
+        color: red;
+      }
+    }
+
+    .search-container:focus-within & {
+      opacity: 0;
+      visibility: hidden;
+      transition: visibility .5s linear .5s, opacity .5s linear;
+    }
+  }
+
+  .navbar, .auth-buttons {
+    flex-shrink: 0;
   }
 
   button {
@@ -43,13 +104,11 @@ header {
     color: #fff;
     border-radius: 0.25rem;
     cursor: pointer;
-
-    fa-icon {
-      font-size: 1rem;
-    }
   }
 
   .auth-buttons {
+    order: 3;
+
     button {
       margin-left: 1rem;
       padding: 0.5rem 1rem;
@@ -61,12 +120,20 @@ header {
 
       &:first-child {
         background: none;
-        color: #333;
+        color: #ffffff;
+        transition: all 0.3s ease;
+        &:hover {
+          color: red;
+        }
       }
 
       &:last-child {
-        background: #007bff;
+        background: #201C1C;
         color: #fff;
+        transition: all 0.3s ease;
+        &:hover {
+          background: #110f0f;
+        }
       }
     }
   }
