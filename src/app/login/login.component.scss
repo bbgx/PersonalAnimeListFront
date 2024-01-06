@@ -1,31 +1,33 @@
-$background-color: rgb(243, 244, 246, 0.8);
-$button-color: #4a5568;
-$input-background: #ffffff;
-$border-color: #cbd5e0;
+$button-background: #252626;
+$button-radius: 0.3em;
+$input-border-color: #1f1f1f;
+$login-box-background: #191919;
 
 @mixin button-style {
   padding: 0.6em 1.2em;
   border: none;
-  background-color: $button-color;
+  background: $button-background;
   color: white;
   cursor: pointer;
-  border-radius: 0.3em;
+  border-radius: $button-radius;
   font-size: 1em;
   font-weight: bold;
-  &:hover {
-    background-color: darken($button-color, 10%);
-  }
 }
 
 @mixin input-style {
-  display: block;
+  box-sizing: border-box;
   width: 100%;
+  background-color: black;
+  color: white;
   padding: 0.6em;
   margin-bottom: 1em;
-  background-color: $input-background;
-  border: 1px solid $border-color;
-  border-radius: 0.3em;
-  box-sizing: border-box;
+  border: 2px solid $input-border-color;
+  font-family: 'Gotham';
+  font-weight: 600;
+}
+
+h2 {
+  color: white;
 }
 
 .login-container {
@@ -37,11 +39,10 @@ $border-color: #cbd5e0;
 }
 
 .login-box {
-  background-color: $background-color;
+  background-color: $login-box-background;
   padding: 2em;
   border-radius: 0.5em;
   width: 25rem;
-  box-shadow: inset 0 0.5em 1em rgba(0, 0, 0, 0.1);
 
   h2 {
     margin-bottom: 1.5em;
@@ -49,24 +50,39 @@ $border-color: #cbd5e0;
   }
 
   form {
+    text-align: center;
+
     input[type="text"],
     input[type="password"] {
       @include input-style;
-    }
+      transition: all 0.3s ease;
 
-    text-align: center;
+      &:focus {
+        outline: solid 1px $input-border-color;
+      }
+    }
 
     button[type="submit"] {
       @include button-style;
       width: 100%;
       margin-top: 1em;
+      transition: background-color 0.4s ease;
+
+      &:hover {
+        background-color: darken($button-background, 10%);
+      }
     }
 
     .register-button {
       @include button-style;
-      background-color: transparent;
-      color: $button-color;
+      background: none;
+      color: white;
       margin-top: 0.5em;
+      transition: color 0.4s ease;
+
+      &:hover {
+        color: red;
+      }
     }
   }
 }
