@@ -44,8 +44,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;   /*  hide scrollbars */
-
+  overflow: hidden;
 
   body {
     margin: 0;
@@ -53,4 +52,13 @@ html {
     height: 100%;
     width: 80%;
   }
+}
+
+.ngx-toastr {
+  font-family: 'Gotham';
+  font-weight: 300;
+}
+
+.toast-title {
+  font-weight: 700;
 }

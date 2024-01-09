@@ -20,7 +20,7 @@ $login-box-background: #191919;
   background-color: black;
   color: white;
   padding: 0.6em;
-  margin-bottom: 1em;
+  margin: 1em 0;
   border: 2px solid $input-border-color;
   font-family: 'Gotham';
   font-weight: 600;
@@ -45,7 +45,7 @@ h2 {
   width: 25rem;
 
   h2 {
-    margin-bottom: 1.5em;
+    margin-bottom: 1em;
     text-align: center;
   }
 
@@ -66,11 +66,24 @@ h2 {
       @include button-style;
       width: 100%;
       margin-top: 1em;
-      transition: background-color 0.4s ease;
+      transition: 0.4s ease;
 
       &:hover {
         background-color: darken($button-background, 10%);
       }
+
+      &:disabled {
+        pointer-events: none;
+        filter: brightness(20%);
+      }
+    }
+
+    .error {
+      color: red;
+      margin-top: -0.8em;
+      font-size: 0.8em;
+      display: block;
+      text-align: left;
     }
 
     .register-button {
