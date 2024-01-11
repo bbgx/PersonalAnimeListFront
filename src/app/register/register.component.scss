@@ -1,0 +1,101 @@
+$button-background: #252626;
+$button-radius: 0.3em;
+$input-border-color: #1f1f1f;
+$login-box-background: #191919;
+
+@mixin button-style {
+  padding: 0.6em 1.2em;
+  border: none;
+  background: $button-background;
+  color: white;
+  cursor: pointer;
+  border-radius: $button-radius;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+@mixin input-style {
+  box-sizing: border-box;
+  width: 100%;
+  background-color: black;
+  color: white;
+  padding: 0.6em;
+  margin: .6em 0;
+  border: 2px solid $input-border-color;
+  font-family: 'Gotham';
+  font-weight: 600;
+}
+
+.register-container {
+  width: 100%;
+  height: 75vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-box {
+  background-color: $login-box-background;
+  padding: 2em;
+  border-radius: 0.5em;
+  width: 25rem;
+
+  h2 {
+    margin-bottom: 1em;
+    text-align: center;
+    color: white;
+  }
+
+  form {
+    text-align: center;
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      @include input-style;
+      transition: all 0.3s ease;
+
+      &:focus {
+        outline: solid 1px $input-border-color;
+      }
+    }
+
+    .password-field, .confirm-password-field {
+      position: relative;
+    }
+
+    .icon {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      cursor: pointer;
+      z-index: 1;
+      color: white;
+    }
+
+    button[type="submit"] {
+      @include button-style;
+      width: 50%;
+      margin-top: 1em;
+      transition: 0.4s ease;
+
+      &:hover {
+        background-color: darken($button-background, 10%);
+      }
+
+      &:disabled {
+        pointer-events: none;
+        filter: brightness(20%);
+      }
+    }
+
+    .error {
+      color: red;
+      margin-top: -0.8em;
+      font-size: 0.8em;
+      display: block;
+      text-align: left;
+    }
+  }
+}
