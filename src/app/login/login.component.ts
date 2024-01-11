@@ -37,6 +37,7 @@ export class LoginComponent {
       this.authService.login(form.value).subscribe(
         res => {
           localStorage.setItem('token', res.token);
+          this.toastr.success('Login successful.', 'Welcome!');
           this.router.navigate(['/']);
         },
         err => {
