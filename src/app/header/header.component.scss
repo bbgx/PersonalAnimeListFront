@@ -25,6 +25,53 @@ header {
     margin-left: 2rem;
     order: 2;
 
+    .search-results {
+      position: absolute;
+      top: 2.2rem;
+      z-index: 100;
+      background: black;
+      border: 3px solid #1f1f1f;
+      border-bottom-right-radius: 0.35rem;
+      border-bottom-left-radius: 0.35rem;
+      margin-left: -1px;
+      margin-right: -.8px;
+    }
+
+    .search-item {
+      display: flex;
+      align-items: center;
+      padding: 8px;
+      margin: 10px;
+      color: white;
+    }
+
+    .cover-image {
+      width: 50px;
+      margin-right: 10px;
+      height: auto;
+    }
+
+    .info h4 {
+      margin: 0;
+      font-size: 1rem;
+      font-family: 'Gotham';
+      font-weight: 700;
+    }
+
+    ul {
+      padding: 0;
+    }
+
+    hr {
+      width: 80%;
+    }
+
+    .info p {
+      margin: 0 10px;
+      font-size: 0.8rem;
+      color: #666;
+    }
+
     .search-box {
       flex-grow: 1;
       flex-shrink: 1;
@@ -33,7 +80,8 @@ header {
       padding: 0.5rem 1.8rem;
       box-sizing: border-box;
       border: 2px solid #1f1f1f;
-      border-radius: 0.35rem;
+      border-top-left-radius: 0.35rem;
+      border-top-right-radius: 0.35rem;
       font-family: 'Gotham';
       font-weight: 600;
       color: white;

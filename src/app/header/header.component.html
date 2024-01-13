@@ -3,9 +3,26 @@
     <span class="logo"><a href="/">WEEABO WATCHLIST</a></span>
   </div>
   <div class="search-container">
-    <input #searchBox type="text" class="search-box" placeholder="Search..." (focus)="hideNavbar()"
-      (blur)="beginSearchBoxShrink()" (transitionend)="handleTransitionEnd($event)">
+    <input #searchBox type="text" class="search-box" placeholder="Search..."
+      (input)="searchAnime(searchBox.value)"
+      (blur)="hideSearchResults(); beginSearchBoxShrink()"
+      (focus)="expandSearchBox(); hideNavbar()"
+      (transitionend)="handleSearchBoxTransitionEnd()">
     <span class="icon"><fa-icon [icon]="faMagnifyingGlass"></fa-icon></span>
+    <div class="search-results" *ngIf="showSearchResultsDropdown && searchResults.length" (transitioned)="handleSearchBoxTransitionEnd()">
+      <ul>
+        <li *ngFor="let anime of searchResults">
+          <div class="search-item">
+            <img [src]="anime.animeCoverImage" alt="Cover Image" class="cover-image">
+            <div class="info">
+              <h4>{{ anime.title }} ({{ anime.titleJapanese }})</h4>
+              <p *ngIf="anime.synopsis">{{ anime.synopsis | slice:0:128 }}{{ anime.synopsis.length > 128 ? '...' : '' }}</p>
+            </div>
+          </div>
+          <hr>
+        </li>
+      </ul>
+    </div>
   </div>
 
   <nav class="navbar"
