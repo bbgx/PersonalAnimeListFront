@@ -1,0 +1,54 @@
+.anime-overview-container {
+  display: flex;
+  width: 100%;
+}
+
+.anime-profile-details {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+}
+
+.profile-stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 50px;
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  label {
+    font-weight: 500;
+    color: #9F9EA2;
+  }
+
+  span {
+    font-weight: 500;
+  }
+}
+
+.extensive-section {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  margin-bottom: 20px;
+
+  p {
+    text-align: justify;
+    color: #B7B7BB;
+  }
+
+  .title-container h2 {
+    margin-bottom: unset !important;
+  }
+}
+
+.title-container:nth-of-type(odd) {
+  align-self: flex-start;
+}
+
+.title-container:nth-of-type(even) {
+  align-self: flex-end;
+}

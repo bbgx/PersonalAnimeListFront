@@ -5,84 +5,62 @@
 
 .anime-profile-container {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
+  width: 90%;
+  align-self: center;
+}
+
+.anime-cover-image img {
+  border-radius: 20px;
+  outline: 2px solid rgb(255, 255, 255);
+  outline-offset: -6px;
+  margin-left: 70px;
+}
+
+.anime-header-container {
+  display: flex;
+  width: 100%;
+  margin-bottom: 30px;
+  flex-direction: column;
+  margin-left: 2rem;
   justify-content: center;
 }
 
-.anime-title-container {
+.anime-presentation {
   display: flex;
-  align-items: center;
-  flex-direction: column;
+  flex-direction: row;
+  margin-left: 2rem;
+  justify-content: center;
   width: 100%;
-  margin-bottom: 30px;
-
-  .anime-title-japanese {
-    margin-top: unset;
-  }
-
-  hr {
-    width: 75%;
-  }
 }
 
-.anime-info {
+.anime-info-tabs {
   display: flex;
+  border-bottom: 1px solid #ccc;
 }
 
-.anime-cover-image {
-  box-shadow: 10px 10px 5px 5px rgba(0,0,0,0.75);
-
-  img {
-    outline: 2px solid rgb(255, 255, 255);
-    outline-offset: -6px;
-  }
+.anime-info-tabs button {
+  background-color: transparent;
+  font-family: 'Gotham';
+  font-weight: 500;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 15px;
+  transition: font-weight 0.3s ease, border-bottom 0.3s ease;
+  border-bottom: 3px solid transparent;
 }
 
-.anime-details-container {
+.anime-info-tabs button.active {
+  font-weight: 700;
+  border-bottom: 3px solid black;
+}
+
+.anime-info-container {
   display: flex;
+  width: 100%;
   flex-direction: column;
   margin-left: 100px;
   flex-shrink: unset;
-}
-
-.profile-stat {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  &:not(:last-child) {
-    margin-bottom: 20px;
-  }
-
-  label {
-    font-weight: 700;
-  }
-
-  span {
-    font-weight: 500;
-    margin-left: 25vh;
-  }
-}
-
-.extensive-section {
-  display: flex;
-  flex-direction: column;
-  width: 80%;
-  margin-bottom: 20px;
-
-  p {
-    text-align: justify;
-  }
-
-  .title-container h1 {
-    margin-bottom: unset !important;
-  }
-}
-
-.title-container:nth-of-type(odd) {
-  align-self: flex-start;
-}
-
-.title-container:nth-of-type(even) {
-  align-self: flex-end;
 }
