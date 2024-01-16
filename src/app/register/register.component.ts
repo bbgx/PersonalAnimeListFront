@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, NgForm, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
-import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { emailRegex, strongPasswordRegex, usernameRegex } from '../../utils/regex';
@@ -12,10 +11,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule, ReactiveFormsModule, FontAwesomeModule],
+  imports: [ CommonModule, FormsModule, ReactiveFormsModule, FontAwesomeModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
-  providers: [ HttpClientModule ]
 })
 export class RegisterComponent {
   usernameRegex: RegExp = usernameRegex;

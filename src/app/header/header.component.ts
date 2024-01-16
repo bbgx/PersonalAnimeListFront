@@ -9,7 +9,7 @@ import { Subject, debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [FontAwesomeModule, CommonModule],
+  imports: [CommonModule, FontAwesomeModule ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })

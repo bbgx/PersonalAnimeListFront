@@ -1,16 +1,14 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from "./header/header.component";
+import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-root',
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
-    providers: [HttpClientModule],
-    imports: [CommonModule, RouterOutlet, HttpClientModule, HeaderComponent]
+    imports: [ RouterOutlet, HeaderComponent, CommonModule ]
 })
 export class AppComponent {
   title = 'WeebWatchList';

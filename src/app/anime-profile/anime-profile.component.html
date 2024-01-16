@@ -16,7 +16,7 @@
       <div class="tab-content">
         <ng-container *ngFor="let tab of tabs">
           <ng-container *ngIf="activeTab === tab.id">
-            <ng-container *ngComponentOutlet="tab.component"></ng-container>
+            <ng-container [@fadeInOut] *ngComponentOutlet="tab.component"></ng-container>
           </ng-container>
         </ng-container>
       </div>

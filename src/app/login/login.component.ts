@@ -1,22 +1,17 @@
-import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { CommonModule } from '@angular/common';
 import { emailRegex, usernameRegex } from '../../utils/regex';
-import { provideAnimations } from '@angular/platform-browser/animations';
-import { ToastrService, provideToastr } from 'ngx-toastr';
-import { bootstrapApplication } from '@angular/platform-browser';
-import { AppComponent } from '../app.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, HttpClientModule, CommonModule],
+  imports: [CommonModule, FormsModule ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
-  providers: [ HttpClientModule ]
 })
 
 export class LoginComponent {
