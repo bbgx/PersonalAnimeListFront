@@ -1,24 +1,24 @@
-  <div class="anime-profile-container">
-    <div class="anime-presentation">
-      <div class="anime-cover-image">
-        <img src="https://cdn.myanimelist.net/images/anime/4/19644l.jpg" alt="Anime Cover">
-      </div>
-      <div class="anime-header-container">
-        <h1 class="anime-title-english">Cowboy Bebop</h1>
-        <h4 class="anime-title-japanese">カウボーイビバップ</h4>
-      </div>
+<div class="anime-profile-container">
+  <div class="anime-presentation">
+    <div class="anime-cover-image">
+      <img src="https://cdn.myanimelist.net/images/anime/4/19644l.jpg" alt="Anime Cover">
     </div>
-    <div class="anime-info-container">
-      <div class="anime-info-tabs">
-        <button *ngFor="let tab of tabs" (click)="setActiveTab(tab.id)"
-          [ngClass]="{'active': activeTab === tab.id}">{{ tab.title }}</button>
-      </div>
-      <div class="tab-content">
-        <ng-container *ngFor="let tab of tabs">
-          <ng-container *ngIf="activeTab === tab.id">
-            <ng-container [@fadeInOut] *ngComponentOutlet="tab.component"></ng-container>
-          </ng-container>
-        </ng-container>
-      </div>
+    <div class="anime-header-container">
+      <h1 class="anime-title-english">Cowboy Bebop</h1>
+      <h4 class="anime-title-japanese">カウボーイビバップ</h4>
     </div>
   </div>
+  <div class="anime-info-container">
+    <div class="anime-info-tabs">
+      <button *ngFor="let tab of tabs" (click)="setActiveTab(tab.id)"
+        [ngClass]="{'active': activeTab === tab.id}">{{ tab.title }}</button>
+    </div>
+    <div class="tab-content" [@fade]="activeTab">
+      <ng-container *ngFor="let tab of tabs">
+        <ng-container *ngIf="activeTab === tab.id">
+          <ng-container *ngComponentOutlet="tab.component"></ng-container>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+</div>

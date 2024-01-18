@@ -11,21 +11,18 @@ import { animate, style, transition, trigger } from '@angular/animations';
   templateUrl: './anime-profile.component.html',
   styleUrl: './anime-profile.component.scss',
   animations: [
-    trigger('fadeInOut', [
-      transition('void => active', [
+    trigger('fade', [
+      transition('* => *', [
         style({ opacity: 0 }),
-        animate(1000, style({ opacity: 1 }))
+        animate('500ms', style({ opacity: 1 })),
       ]),
-      transition('* => void', [
-        animate(1000, style({ opacity: 0 }))
-      ])
-    ])
-  ]
+    ]),
+  ],
 })
 export class AnimeProfileComponent {
   tabs = [
-    { id: 'anime-overview', title: 'Overview', component: AnimeOverviewComponent },
     { id: 'anime-characters', title: 'Characters', component: AnimeCharactersComponent },
+    { id: 'anime-overview', title: 'Overview', component: AnimeOverviewComponent },
   ];
 
   activeTab = this.tabs[0].id;
