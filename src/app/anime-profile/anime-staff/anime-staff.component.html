@@ -1,0 +1,18 @@
+<h2 class="staff-title">Staff</h2>
+<div class="staff-slider">
+  <app-scrollable-list [containerSelector]="'.staff-wrap-container'">
+    <div class="staff-wrap-container">
+      <div class="staff-container" *ngFor="let person of staff">
+        <div class="staff-info">
+          <div class="image-container">
+            <img [src]="person.image" alt="{{ person.name }}" class="staff-image">
+          </div>
+          <div class="info-overlay">
+            <p class="staff-name">{{ person.name }}</p>
+            <p class="staff-role">{{ person.role }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </app-scrollable-list>
+</div>

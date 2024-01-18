@@ -1,0 +1,90 @@
+.staff-title {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.staff-wrap-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.staff-container {
+  flex: 0 0 auto;
+  position: relative;
+  display: flex;
+  width: 200px;
+  margin: 10px;
+  height: 300px;
+}
+
+.staff-info {
+  flex-grow: 1;
+  transition: opacity 0.3s ease;
+}
+
+.staff-info img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.image-container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.image-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 71%);
+  z-index: 1;
+}
+
+.info-overlay {
+  color: white;
+  margin-left: 5px;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  z-index: 2;
+}
+
+.staff-name {
+  position: absolute;
+  width: 100%;
+  top: 0;
+}
+
+.staff-role {
+  padding-top: 25px;
+}
+
+.staff-info {
+  position: relative;
+}
+
+.staff-slider {
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.staff-wrap-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}

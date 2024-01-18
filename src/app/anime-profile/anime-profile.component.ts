@@ -3,11 +3,12 @@ import { Component } from '@angular/core';
 import { AnimeOverviewComponent } from './anime-overview/anime-overview.component';
 import { AnimeCharactersComponent } from './anime-characters/anime-characters.component';
 import { animate, style, transition, trigger } from '@angular/animations';
+import { AnimeStaffComponent } from './anime-staff/anime-staff.component';
 
 @Component({
   selector: 'app-anime-profile',
   standalone: true,
-  imports: [ CommonModule , AnimeOverviewComponent, AnimeCharactersComponent ],
+  imports: [ CommonModule , AnimeOverviewComponent, AnimeCharactersComponent, AnimeStaffComponent ],
   templateUrl: './anime-profile.component.html',
   styleUrl: './anime-profile.component.scss',
   animations: [
@@ -21,8 +22,10 @@ import { animate, style, transition, trigger } from '@angular/animations';
 })
 export class AnimeProfileComponent {
   tabs = [
-    { id: 'anime-characters', title: 'Characters', component: AnimeCharactersComponent },
     { id: 'anime-overview', title: 'Overview', component: AnimeOverviewComponent },
+    { id: 'anime-characters', title: 'Characters', component: AnimeCharactersComponent },
+    { id: 'anime-staff', title: 'Staff', component: AnimeStaffComponent },
+
   ];
 
   activeTab = this.tabs[0].id;
