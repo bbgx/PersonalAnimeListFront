@@ -1,0 +1,26 @@
+<button class="add-review" (click)="openModal()" type="button">Write a Review</button>
+
+<div class="modal" *ngIf="showModal">
+  <div class="modal-content">
+    <span (click)="closeModal()" class="close">&times;</span>
+    <div class="modal-body">
+      <div class="star-rating">
+        <span *ngFor="let star of stars" (click)="rate(star)" [ngClass]="{'filled': star <= rating}">★</span>
+      </div>
+      <textarea name="" id="" cols="30" rows="10" [(ngModel)]="reviewText"></textarea>
+      <label for="">
+        <input type="checkbox" name="" id="" [(ngModel)]="isSpoiler">
+        Spoiler
+      </label>
+      <button class="submit-review" (click)="submitReview()">Submit Review</button>
+    </div>
+  </div>
+</div>
+
+<div class="review-list" *ngFor="let review of reviews">
+  <img [src]="review.userProfileImageUrl" alt="" class="profile-img">
+  <p class="username">{{ review.userName }}</p>
+  <p class="review-timestamp">{{ review.timestamp | date:'medium' }}</p>
+  <p class="review-text">{{ review.text }}</p>
+  <button class="delete-review" (click)="deleteReview(review.id)">Delete review</button>
+</div>

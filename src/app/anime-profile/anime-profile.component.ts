@@ -4,6 +4,7 @@ import { AnimeOverviewComponent } from './anime-overview/anime-overview.componen
 import { AnimeCharactersComponent } from './anime-characters/anime-characters.component';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { AnimeStaffComponent } from './anime-staff/anime-staff.component';
+import { ReviewComponent } from '../review/review.component';
 
 @Component({
   selector: 'app-anime-profile',
@@ -22,6 +23,7 @@ import { AnimeStaffComponent } from './anime-staff/anime-staff.component';
 })
 export class AnimeProfileComponent {
   tabs = [
+    { id: 'anime-review', title: 'Reviews', component: ReviewComponent },
     { id: 'anime-overview', title: 'Overview', component: AnimeOverviewComponent },
     { id: 'anime-characters', title: 'Characters', component: AnimeCharactersComponent },
     { id: 'anime-staff', title: 'Staff', component: AnimeStaffComponent },
