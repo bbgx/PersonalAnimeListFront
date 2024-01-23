@@ -1,15 +1,41 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faStar, faStarHalfAlt, faStar as farStar } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-review',
   standalone: true,
-  imports: [ CommonModule, FormsModule ],
+  imports: [ CommonModule, FormsModule, FontAwesomeModule ],
   templateUrl: './review.component.html',
   styleUrl: './review.component.scss'
 })
 export class ReviewComponent {
+  showModal = true;
+  reviewText = '';
+  isSpoiler = false;
+  userProfileImageUrl = '';
+  userName = '';
+  currentUserId = '';
+  faStar = faStar;
+  faStarHalfAlt = faStarHalfAlt;
+  farStar = farStar;
+  rating = 0;
+  stars: number[] = [1, 2, 3, 4, 5];
+  selectedValue!: number;
+  hoverValue = 0;
+
+  onStarHover(star: number) {
+    this.hoverValue = star;
+  }
+
+  countStar(star: number) {
+    this.selectedValue = star;
+    this.hoverValue = star;
+    console.log('Value of star', star);
+  }
+
   reviews = [
     {
       id: 1,
@@ -33,15 +59,6 @@ export class ReviewComponent {
     },
   ];
 
-  showModal = false;
-  reviewText = '';
-  isSpoiler = false;
-  userProfileImageUrl = '';
-  userName = '';
-  currentUserId = '';
-  rating = 0;
-  stars = [1, 2, 3, 4, 5];
-
   openModal() {
     this.showModal = true;
   }
@@ -51,7 +68,7 @@ export class ReviewComponent {
   }
 
   rate(star: number) {
-    this.rating = star
+    this.rating = star;
   }
 
   submitReview() {

@@ -4,15 +4,25 @@
   <div class="modal-content">
     <span (click)="closeModal()" class="close">&times;</span>
     <div class="modal-body">
+      <h2>Add a review</h2>
       <div class="star-rating">
-        <span *ngFor="let star of stars" (click)="rate(star)" [ngClass]="{'filled': star <= rating}">★</span>
+        <label class="rate">Rate</label>
+        <div class="stars-container">
+          <ul class="list-inline rating-list" *ngFor="let star of stars">
+            <li (click)="countStar(star)" (mouseover)="onStarHover(star)" (mouseleave)="onStarHover(0)"
+              [ngClass]="{'selected': (star <= selectedValue || star <= hoverValue)}">
+              <fa-icon [icon]="faStar"></fa-icon>
+            </li>
+          </ul>
+        </div>
       </div>
       <textarea name="" id="" cols="30" rows="10" [(ngModel)]="reviewText"></textarea>
-      <label for="">
-        <input type="checkbox" name="" id="" [(ngModel)]="isSpoiler">
+      <label class="spoiler-checkbox">
+        <input type="checkbox" [(ngModel)]="isSpoiler">
+        <span class="checkmark"></span>
         Spoiler
       </label>
-      <button class="submit-review" (click)="submitReview()">Submit Review</button>
+      <button class="submit-review" (click)="submitReview()">Post Review</button>
     </div>
   </div>
 </div>
