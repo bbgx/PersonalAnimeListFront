@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faStar, faStarHalfAlt, faStar as farStar } from '@fortawesome/free-solid-svg-icons';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-review',
@@ -12,15 +12,13 @@ import { faStar, faStarHalfAlt, faStar as farStar } from '@fortawesome/free-soli
   styleUrl: './review.component.scss'
 })
 export class ReviewComponent {
-  showModal = true;
+  showModal = false;
   reviewText = '';
   isSpoiler = false;
   userProfileImageUrl = '';
   userName = '';
   currentUserId = '';
   faStar = faStar;
-  faStarHalfAlt = faStarHalfAlt;
-  farStar = farStar;
   rating = 0;
   stars: number[] = [1, 2, 3, 4, 5];
   selectedValue!: number;
@@ -33,7 +31,6 @@ export class ReviewComponent {
   countStar(star: number) {
     this.selectedValue = star;
     this.hoverValue = star;
-    console.log('Value of star', star);
   }
 
   reviews = [
@@ -41,7 +38,7 @@ export class ReviewComponent {
       id: 1,
       userId: '123',
       userProfileImageUrl: 'https://cdn.imgchest.com/files/myd5czpld34.png',
-      userName: 'User 1',
+      userName: 'Cleitinho',
       text: 'Great anime!',
       timestamp: new Date(),
       isSpoiler: false,
@@ -51,10 +48,40 @@ export class ReviewComponent {
       id: 2,
       userId: '456',
       userProfileImageUrl: 'https://cdn.hero.page/pfp/4d60260f-b986-496d-8b12-f508aa2628d2-anime-boy-glaring-into-the-distance-4k-anime-boy-profile-picture-4.png',
-      userName: 'User 2',
+      userName: 'Sterbz',
       text: 'Loved this manga.',
       timestamp: new Date(),
       isSpoiler: true,
+      rating: 4,
+    },
+    {
+      id: 2,
+      userId: '456',
+      userProfileImageUrl: 'https://cdn.hero.page/pfp/4d60260f-b986-496d-8b12-f508aa2628d2-anime-boy-glaring-into-the-distance-4k-anime-boy-profile-picture-4.png',
+      userName: 'Jantz',
+      text: 'Loved this manga.',
+      timestamp: new Date(),
+      isSpoiler: true,
+      rating: 3,
+    },
+    {
+      id: 2,
+      userId: '456',
+      userProfileImageUrl: 'https://cdn.hero.page/pfp/4d60260f-b986-496d-8b12-f508aa2628d2-anime-boy-glaring-into-the-distance-4k-anime-boy-profile-picture-4.png',
+      userName: 'Boogye',
+      text: 'Loved this manga.',
+      timestamp: new Date(),
+      isSpoiler: true,
+      rating: 1,
+    },
+    {
+      id: 2,
+      userId: '456',
+      userProfileImageUrl: 'https://cdn.hero.page/pfp/4d60260f-b986-496d-8b12-f508aa2628d2-anime-boy-glaring-into-the-distance-4k-anime-boy-profile-picture-4.png',
+      userName: 'User 2',
+      text: 'Loved this manga.',
+      timestamp: new Date(),
+      isSpoiler: false,
       rating: 5,
     },
   ];
@@ -87,6 +114,10 @@ export class ReviewComponent {
     this.reviewText = '';
     this.isSpoiler = false;
     this.closeModal();
+  }
+
+  starFilled(star: number, rating: number) {
+    return star <= rating;
   }
 
   deleteReview(reviewId: number) {

@@ -1,5 +1,7 @@
-<button class="add-review" (click)="openModal()" type="button">Write a Review</button>
-
+<div class="review-list-header">
+  <h2>Recent Reviews</h2>
+  <button class="add-review" (click)="openModal()" type="button">+ Write a Review</button>
+</div>
 <div class="modal" *ngIf="showModal">
   <div class="modal-content">
     <span (click)="closeModal()" class="close">&times;</span>
@@ -28,9 +30,21 @@
 </div>
 
 <div class="review-list" *ngFor="let review of reviews">
-  <img [src]="review.userProfileImageUrl" alt="" class="profile-img">
-  <p class="username">{{ review.userName }}</p>
-  <p class="review-timestamp">{{ review.timestamp | date:'medium' }}</p>
-  <p class="review-text">{{ review.text }}</p>
-  <button class="delete-review" (click)="deleteReview(review.id)">Delete review</button>
+  <div class="review-header">
+    <img [src]="review.userProfileImageUrl" alt="" class="profile-img">
+    <p class="spoiler">Spoiler</p>
+    <p class="username">{{ review.userName }}</p>
+    <p class="review-timestamp">{{ review.timestamp | date:'medium' }}</p>
+    <button class="delete-review" (click)="deleteReview(review.id)">Delete</button>
+  </div>
+  <div class="review-content">
+    <div class="stars-container">
+      <ul class="list-inline rating-list">
+        <li *ngFor="let star of stars" [ngClass]="{'selected': starFilled(star, review.rating)}">
+          <fa-icon [icon]="faStar"></fa-icon>
+        </li>
+      </ul>
+    </div>
+    <p class="review-text">{{ review.text }}</p>
+  </div>
 </div>
