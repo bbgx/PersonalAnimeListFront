@@ -5,19 +5,19 @@
       <div class="character-container" *ngFor="let character of characters">
         <div class="character-info">
           <div class="image-container">
-            <img [src]="character.image" alt="{{ character.name }}" class="character-image">
+            <img [src]="character.characterImage" alt="{{ character.name }}" class="character-image">
           </div>
           <div class="info-overlay">
             <p class="character-name">{{ character.name }}</p>
             <p class="character-role">{{ character.role }}</p>
           </div>
         </div>
-        <div class="voice-actor-info">
+        <div *ngIf="character.voiceActors.length" class="voice-actor-info">
           <div class="image-container">
-            <img [src]="character.voiceActor.image" alt="{{ character.voiceActor.name }}" class="voice-actor-image">
+            <img [src]="character.voiceActors[0].voiceActorImage" alt="{{ character.voiceActors[0].name }}" class="voice-actor-image">
           </div>
-          <p class="voice-actor-name">{{ character.voiceActor.name }}</p>
-          <p class="voice-actor-language">{{ character.voiceActor.language }}</p>
+          <p class="voice-actor-name">{{ character.voiceActors[0].name }}</p>
+          <p class="voice-actor-language">{{ character.voiceActors[0].language }}</p>
         </div>
       </div>
     </div>
